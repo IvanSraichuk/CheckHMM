@@ -4,7 +4,7 @@ begin
 end;
 
 begin
-    path = "04015ECG.txt"
+    path = "normal-sinus-rhythm.txt"
     ar = readdlm(path, Float64)
     hmmDc = Dict{String, HMM}()
     for j ∈ 1:2
@@ -35,7 +35,7 @@ begin
         _ = process!(hmm, signal, false; params = hmmParams,)
         end
 
-        hmmDc["ECG" * string(j)] = hmm
+        hmmDc["Normal_ECG" * string(j)] = hmm
     end
     writeHMM("out", hmmDc)
   end
