@@ -40,7 +40,7 @@ begin
     labelVc[121773:122194] .= 2
     labelVc[133348:166857] .= 2
     labelVc[133348:166857] .= 2
-    for penalty in penalties
+    for (ι, penalty) in enumerate(penalties)
         signal = ar1[1:250000, 1]
         signal1 = reshape(signal, length(signal), 1)
         traceback1 = process(signal1, penalty)    
@@ -51,6 +51,14 @@ begin
         println("Penalty = " * string(penalty))
         println(performance(traceback1, labelVc))
         println(performance(traceback2, labelVc))      
+
+        if ι == 1
+            # assign frecuency labels
+            labels = [1, 2]
+            traceback1[traceback1 .> 1] .= 2
+
+            println(MindReader.adjustFq(traceback1, labelVc, labels))
+        end
     end
 
     print(size(ar1))
