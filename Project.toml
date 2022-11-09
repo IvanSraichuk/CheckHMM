@@ -1,3 +1,4 @@
 [deps]
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
 HiddenMarkovModelReaders = "760a73f4-dca7-4de8-943d-18a66a2ce654"
+MindReader = "29767591-7395-4f5d-bb0f-9767abbb8d26"
